@@ -49,11 +49,13 @@ namespace geometry {
         }
     }
 
-    Pyramid::Pyramid(double x1, double y1, double z1, double x2, double y2, double z2, 
-                     double x3, double y3, double z3, double x4, double y4, double z4)
-        : Pyramid(Point3D(x1, y1, z1), Point3D(x2, y2, z2), Point3D(x3, y3, z3), Point3D(x4, y4, z4))
-    {
-    }
+    Pyramid::Pyramid(const double x1, const double y1, const double z1, 
+                 const double x2, const double y2, const double z2, 
+                 const double x3, const double y3, const double z3, 
+                 const double x4, const double y4, const double z4)
+    : Pyramid(Point3D(x1, y1, z1), Point3D(x2, y2, z2), Point3D(x3, y3, z3), Point3D(x4, y4, z4))
+{
+}
 
     bool Pyramid::isValidPyramid() const {
         if (vertices.size() != TOTAL_VERTEX_COUNT) {
