@@ -47,8 +47,10 @@ namespace geometry {
          * @brief конструктор, создает пирамиду по координатам
          * @param x1, y1, z1 ... x4, y4, z4 - координаты 3 точек основания и вершины
          */
-        Pyramid(double x1, double y1, double z1, double x2, double y2, double z2, 
-                double x3, double y3, double z3, double x4, double y4, double z4);
+        Pyramid(const double x1, const double y1, const double z1, 
+        const double x2, const double y2, const double z2, 
+        const double x3, const double y3, const double z3, 
+        const double x4, const double y4, const double z4);
 
         /**
          * @brief сериализация в строку
