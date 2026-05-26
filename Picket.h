@@ -75,12 +75,41 @@ namespace railway {
         */
         double toMeters() const;
 
-        // ---- операторы сравнения ----
+        /**
+        * @brief оператор сравнения "равно"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет равен other, иначе false
+        */
         bool operator==(const Picket& other) const;
+        /**
+        * @brief оператор сравнения "не равно"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет не равен other, иначе false
+        */
         bool operator!=(const Picket& other) const;
+        /**
+        * @brief оператор сравнения "меньше"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет меньше other, иначе false
+        */
         bool operator<(const Picket& other)  const;
+        /**
+        * @brief оператор сравнения "меньше или равно"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет меньше или равен other, иначе false
+        */
         bool operator<=(const Picket& other) const;
+        /**
+        * @brief оператор сравнения "больше"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет больше other, иначе false
+        */
         bool operator>(const Picket& other)  const;
+        /**
+        * @brief оператор сравнения "больше или равно"
+        * @param other пикет для сравнения
+        * @return true, если текущий пикет больше или равен other, иначе false
+        */
         bool operator>=(const Picket& other) const;
 
         /**
