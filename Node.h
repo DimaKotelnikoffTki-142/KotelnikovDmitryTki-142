@@ -13,7 +13,7 @@ public:
      * @param value  Хранимое значение.
      * @param next   Следующий узел (по умолчанию nullptr).
      */
-    explicit Node(int value, Node* next = nullptr);
+    explicit Node(const int value, const Node* next = nullptr);
 
     /** @brief Возвращает значение узла (копия). */
     int   value() const;
@@ -22,13 +22,13 @@ public:
     int& valueRef();
 
     /** @brief Устанавливает новое значение. */
-    void  setValue(int newValue);
+    void  setValue(const int newValue);
 
     /** @brief Возвращает указатель на следующий узел. */
     Node* next() const;
 
     /** @brief Устанавливает следующий узел. */
-    void  setNext(Node* node);
+    void  setNext(const Node* node);
 
 private:
     int   m_value;
