@@ -107,12 +107,22 @@ RingList RingList::operator>>(const std::size_t n) const
 
 int& RingList::operator[](const std::size_t index)
 {
+    if (index >= m_size)
+        throw std::out_of_range(
+            "RingList::operator[]: index " + std::to_string(index) +
+            " >= size " + std::to_string(m_size));
+    
     return nodeAt(index)->valueRef();
 }
 
 const int& RingList::operator[](const std::size_t index) const
 {
-    return const_cast<Node*>(nodeAt(index))->valueRef();
+    if (index >= m_size)
+        throw std::out_of_range(
+            "RingList::operator[]: index " + std::to_string(index) +
+            " >= size " + std::to_string(m_size));
+    
+    return nodeAt(index)->value();
 }
 
 void RingList::pushFront(const int value)
