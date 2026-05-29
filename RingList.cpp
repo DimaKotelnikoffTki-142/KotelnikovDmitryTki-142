@@ -1,6 +1,6 @@
 #include "RingList.h"
 
-Node* RingList::nodeAt(std::size_t index) const
+Node* RingList::nodeAt(const std::size_t index) const
 {
     if (index >= m_size)
         throw std::out_of_range(
@@ -37,7 +37,7 @@ RingList::RingList()
 {
 }
 
-RingList::RingList(std::initializer_list<int> init) : RingList()
+RingList::RingList(const std::initializer_list<int> init) : RingList()
 {
     for (int v : init)
         pushBack(v);
@@ -70,7 +70,7 @@ RingList& RingList::operator=(RingList&& other) noexcept
     return *this;
 }
 
-RingList& RingList::operator<<=(std::size_t n)
+RingList& RingList::operator<<=(const std::size_t n)
 {
     if (m_size > 1)
     {
@@ -81,7 +81,7 @@ RingList& RingList::operator<<=(std::size_t n)
     return *this;
 }
 
-RingList& RingList::operator>>=(std::size_t n)
+RingList& RingList::operator>>=(const std::size_t n)
 {
     if (m_size > 1)
     {
@@ -98,24 +98,24 @@ RingList RingList::operator<<(std::size_t n) const
     return copy;
 }
 
-RingList RingList::operator>>(std::size_t n) const
+RingList RingList::operator>>(const std::size_t n) const
 {
     RingList copy(*this);
     copy >>= n;
     return copy;
 }
 
-int& RingList::operator[](std::size_t index)
+int& RingList::operator[](const std::size_t index)
 {
     return nodeAt(index)->valueRef();
 }
 
-const int& RingList::operator[](std::size_t index) const
+const int& RingList::operator[](const std::size_t index) const
 {
     return const_cast<Node*>(nodeAt(index))->valueRef();
 }
 
-void RingList::pushFront(int value)
+void RingList::pushFront(const int value)
 {
     Node* node = new Node(value);
     if (empty())
@@ -131,13 +131,13 @@ void RingList::pushFront(int value)
     ++m_size;
 }
 
-void RingList::pushBack(int value)
+void RingList::pushBack(const int value)
 {
     pushFront(value);
     m_tail = m_tail->next();
 }
 
-void RingList::insert(std::size_t index, int value)
+void RingList::insert(const std::size_t index, const int value)
 {
     if (index > m_size)
         throw std::out_of_range(
@@ -153,7 +153,7 @@ void RingList::insert(std::size_t index, int value)
     ++m_size;
 }
 
-void RingList::erase(std::size_t index)
+void RingList::erase(const std::size_t index)
 {
     if (index >= m_size)
         throw std::out_of_range(
@@ -187,7 +187,7 @@ void RingList::erase(std::size_t index)
     --m_size;
 }
 
-bool RingList::remove(int value)
+bool RingList::remove(const int value)
 {
     int idx = find(value);
     if (idx < 0) return false;
@@ -200,7 +200,7 @@ void RingList::clear()
     while (!empty()) erase(0);
 }
 
-int RingList::find(int value) const
+int RingList::find(const int value) const
 {
     if (empty()) return -1;
     Node* cur = m_tail->next();
