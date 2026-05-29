@@ -35,7 +35,7 @@ public:
      * @brief Создаёт список из списка инициализации.
      * @param init  Набор значений в порядке их добавления в конец.
      */
-    RingList(std::initializer_list<int> init);
+    RingList(const std::initializer_list<int> init);
 
     /** @brief Конструктор копирования. */
     RingList(const RingList& other);
@@ -64,27 +64,27 @@ public:
      * @brief Возвращает копию списка, циклически сдвинутую влево на n позиций.
      * @param n  Количество позиций сдвига.
      */
-    RingList operator<<(std::size_t n) const;
+    RingList operator<<(const std::size_t n) const;
 
     /**
      * @brief Возвращает копию списка, циклически сдвинутую вправо на n позиций.
      * @param n  Количество позиций сдвига.
      */
-    RingList operator>>(std::size_t n) const;
+    RingList operator>>(const std::size_t n) const;
 
     /**
      * @brief Циклически сдвигает текущий список влево на n позиций (in-place).
      * @param n  Количество позиций сдвига.
      * @return   Ссылка на текущий список.
      */
-    RingList& operator<<=(std::size_t n);
+    RingList& operator<<=(const std::size_t n);
 
     /**
      * @brief Циклически сдвигает текущий список вправо на n позиций (in-place).
      * @param n  Количество позиций сдвига.
      * @return   Ссылка на текущий список.
      */
-    RingList& operator>>=(std::size_t n);
+    RingList& operator>>=(const std::size_t n);
 
     // ----------------------------------------------------------------
     // Доступ по индексу
@@ -95,14 +95,14 @@ public:
      * @param index  Индекс в диапазоне [0, size()).
      * @throws std::out_of_range при некорректном индексе.
      */
-    int& operator[](std::size_t index);
+    int& operator[](const std::size_t index);
 
     /**
      * @brief Возвращает константную ссылку на элемент по индексу.
      * @param index  Индекс в диапазоне [0, size()).
      * @throws std::out_of_range при некорректном индексе.
      */
-    const int& operator[](std::size_t index) const;
+    const int& operator[](const std::size_t index) const;
 
     // ----------------------------------------------------------------
     // Изменение содержимого
@@ -112,13 +112,13 @@ public:
      * @brief Добавляет элемент в начало списка.
      * @param value  Добавляемое значение.
      */
-    void pushFront(int value);
+    void pushFront(const int value);
 
     /**
      * @brief Добавляет элемент в конец списка.
      * @param value  Добавляемое значение.
      */
-    void pushBack(int value);
+    void pushBack(const int value);
 
     /**
      * @brief Вставляет элемент перед позицией index.
@@ -126,21 +126,21 @@ public:
      * @param value  Добавляемое значение.
      * @throws std::out_of_range при index > size().
      */
-    void insert(std::size_t index, int value);
+    void insert(const std::size_t index, const int value);
 
     /**
      * @brief Удаляет элемент в позиции index.
      * @param index  Позиция удаляемого элемента.
      * @throws std::out_of_range при некорректном индексе.
      */
-    void erase(std::size_t index);
+    void erase(const std::size_t index);
 
     /**
      * @brief Удаляет первое вхождение значения value.
      * @param value  Удаляемое значение.
      * @return  true, если элемент был найден и удалён; false иначе.
      */
-    bool remove(int value);
+    bool remove(const int value);
 
     /** @brief Удаляет все элементы списка. */
     void clear();
@@ -154,7 +154,7 @@ public:
      * @param value  Искомое значение.
      * @return  Индекс первого вхождения или -1, если не найдено.
      */
-    int find(int value) const;
+    int find(const int value) const;
 
     /** @brief Возвращает количество элементов в списке. */
     std::size_t size() const;
@@ -177,7 +177,7 @@ private:
      * @param index  Индекс узла.
      * @throws std::out_of_range при некорректном индексе.
      */
-    Node* nodeAt(std::size_t index) const;
+    Node* nodeAt(const std::size_t index) const;
 
     /** @brief Вспомогательный метод: копирует элементы из other. */
     void copyFrom(const RingList& other);
